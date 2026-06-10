@@ -75,19 +75,6 @@ fintech-pipeline/
 
 ---
 
-## Stack
-
-| Layer | Tool |
-|---|---|
-| Language | Python 3 |
-| Database | DuckDB |
-| Transformation | SQL |
-| Exploration | pandas |
-| Visualization | Tableau Public |
-| Version control | Git / GitHub |
-
----
-
 ## How to run
 
 **1 — Clone and set up environment**
@@ -101,7 +88,7 @@ pip install -r requirements.txt
 
 **2 — Download the dataset**
 
-Download from Kaggle: [Credit Card Transactions Fraud Detection Dataset](https://www.kaggle.com/datasets/kartik2112/fraud-detection)
+Kaggle Download Link: [Credit Card Transactions Fraud Detection Dataset](https://www.kaggle.com/datasets/kartik2112/fraud-detection)
 
 Place `fraudTrain.csv` in `data/raw/` or update the path in `ingest.py` to point to your local file.
 
@@ -118,16 +105,16 @@ python3 src/export.py       # Export to CSV
 ## Analytical decisions
 
 **Why raw → staging → mart?**
-This mirrors the architecture used in production data warehouses and dbt projects. The raw layer is never modified — it's the source of truth. Staging cleans and standardizes. Marts answer specific business questions. This structure makes the pipeline easy to debug, extend, and eventually migrate to dbt + Snowflake.
-
-**Why DuckDB?**
-DuckDB runs SQL directly on local files with no server setup. It handles 1.29M rows in milliseconds and uses the same SQL syntax as Snowflake, making the eventual cloud migration straightforward.
+This mirrors the architecture used in production data warehouses and dbt projects. 
+- Raw data remains untouched
+- Staging data polishes raw data by handling nulls, renaming columns, formatting values, etc
+- Marts pre-aggregate data for common business questions
 
 **Why strip the `fraud_` prefix from merchant names?**
-The raw dataset prefixes every merchant with `fraud_` as an artifact of the simulation tool. This was removed in the staging layer so merchant names are clean and readable in downstream analysis.
+The raw dataset prefixes every merchant value with `fraud_`. This was removed in the staging layer so merchant names are clean and readable in analysis.
 
 **Why filter out online categories for the velocity feature?**
-Online transactions don't have a physical location, so velocity flagging based on geography doesn't apply. Filtering to POS transactions only ensures the feature reflects genuine physical impossibility.
+Filtering to in-store transactions ensures the feature reflects genuine physical impossibility, because it is possible for rapid, consecutive online transactions.
 
 ---
 
@@ -153,10 +140,3 @@ Simulated credit card transactions (Jan 2019 – Dec 2020) covering 1,000 custom
 
 ---
 
-## Roadmap
-
-- [x] Phase 1 — Raw ingestion (Python + DuckDB)
-- [x] Phase 2 — Staging layer (SQL)
-- [x] Phase 3 — Mart layer (SQL aggregations)
-- [x] Phase 4 — Tableau dashboard (published)
-- [ ] Phase 5 — dbt models + Snowflake migration
