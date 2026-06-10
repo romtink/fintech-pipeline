@@ -1,6 +1,6 @@
 # Fraud Analytics ELT Pipeline
 
-An end-to-end ELT pipeline built with Python, DuckDB, and SQL to answer a single business question:
+An end-to-end ELT pipeline built with Python, DuckDB, SQL, and Tableau to answer a single business question:
 
 > **Where, when, and to whom does credit card fraud occur — and what transaction behaviors predict it?**
 
