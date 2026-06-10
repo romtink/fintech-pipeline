@@ -1,3 +1,5 @@
+# The objective of this code is to loop through my SQL Mart Tables and convert them into a CSV which will be used for a Tableau dashboard.
+
 import duckdb
 from pathlib import Path
 
@@ -14,6 +16,7 @@ marts = [
     "fraudrisk_by_demographics",
 ]
 
+# Loops through all the mart tables I created and converts them to a dataframe, then CSV.
 for mart in marts:
     df = con.execute(f"SELECT * FROM marts.{mart}").df()
     df.to_csv(OUT_DIR / f"{mart}.csv", index=False)
