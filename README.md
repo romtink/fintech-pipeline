@@ -6,6 +6,8 @@ An end-to-end ELT pipeline built with Python, DuckDB, SQL, and Tableau to answer
 
 **[View the Tableau dashboard](https://public.tableau.com/views/FraudDashboard_17809805593950/Dashboard1)**
 
+![Credit Card Fraud Analytics Dashboard](dashboard.png)
+
 ---
 
 ## Key findings
