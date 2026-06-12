@@ -6,6 +6,8 @@ An end-to-end ELT pipeline built with Python, DuckDB, dbt, Snowflake, and Tablea
 
 [View the Tableau Dashboard →](https://public.tableau.com/app/profile/romtin.kharrazi/viz/FraudDashboard_17809805593950/Dashboard1)
 
+![Dashboard Preview](assets/dashboard_preview.png)
+
 ---
 
 ## Key Findings
