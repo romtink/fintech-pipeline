@@ -1,0 +1,1 @@
+{{ test_unique(column_name="time_of_day", model=get_where_subquery(ref('fraud_by_hour'))) }}

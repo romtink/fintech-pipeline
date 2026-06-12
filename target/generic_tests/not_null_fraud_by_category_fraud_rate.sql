@@ -1,0 +1,1 @@
+{{ test_not_null(column_name="fraud_rate", model=get_where_subquery(ref('fraud_by_category'))) }}

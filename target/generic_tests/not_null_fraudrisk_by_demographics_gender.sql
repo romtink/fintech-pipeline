@@ -1,0 +1,1 @@
+{{ test_not_null(column_name="gender", model=get_where_subquery(ref('fraudrisk_by_demographics'))) }}
