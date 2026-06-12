@@ -1,0 +1,65 @@
+# This file defines tests for categories of my mart tables. Here I will run tests to enforce non-null values and unique values where necessary
+
+version: 2
+
+models:
+  - name: fraud_by_category
+    description: "Fraud rate and transaction counts aggregated by merchant category."
+    columns:
+      - name: category
+        description: "Merchant category."
+        tests:
+          - unique
+          - not_null
+
+      - name: fraud_rate
+        description: "Fraud rate as a percentage."
+        tests:
+          - not_null
+
+      - name: total_transactions
+        description: "Total transactions for each category."
+        tests:
+          - not_null
+
+  - name: fraud_by_hour
+    description: "Fraud rate and transaction counts aggregated by time of day."
+    columns:
+      - name: time_of_day
+        description: "Time of day bucket: Late Night, Morning, Afternoon, Evening."
+        tests:
+          - unique
+          - not_null
+
+      - name: fraud_rate
+        description: "Fraud rate as a percentage rounded to 2 decimal places."
+        tests:
+          - not_null
+
+      - name: total_transactions
+        description: "Total transactions for each time of day bucket."
+        tests:
+          - not_null
+
+  - name: fraudrisk_by_demographics
+    description: "Fraud risk profiled by age group and gender combinations."
+    columns:
+      - name: age_group
+        description: "Age bucket: <30, 30-50, >50."
+        tests:
+          - not_null
+
+      - name: gender
+        description: "Customer's gender."
+        tests:
+          - not_null
+
+      - name: fraud_rate_pct
+        description: "Fraud rate as a percentage."
+        tests:
+          - not_null
+
+      - name: total_transactions
+        description: "Total transactions for each age group and gender combination."
+        tests:
+          - not_null

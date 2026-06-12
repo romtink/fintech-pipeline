@@ -1,0 +1,36 @@
+# This file defines tests for my staging schema. It allows me to enforce non-null, unique value, and specific value arguments in key columns.
+
+version: 2
+
+models:
+  - name: stg_transactions
+    description: "Staging table with cleaned columns and values from raw table"
+    columns:
+      - name: transaction_id
+        description: "Primary key - unique transaction identifier."
+        tests:
+          - unique
+          - not_null
+
+      - name: is_fraud
+        description: "1 = fraud, 0 = legit."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+
+      - name: amount
+        description: "Transaction amount."
+        tests:
+          - not_null
+
+      - name: category
+        description: "Merchant category."
+        tests:
+          - not_null
+
+      - name: transaction_timestamp
+        description: "Datetime of the transaction."
+        tests:
+          - not_null

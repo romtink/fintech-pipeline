@@ -1,0 +1,24 @@
+name: fintech_pipeline
+
+profile: fintech_pipeline
+
+seed-paths: ["seeds"]
+model-paths: ["models"]
+macro-paths: ["macros"]
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+seeds:
+  # Builds seeds into '<your_schema_name>_raw'
+  fintech_pipeline:
+    +schema: raw
+
+models:
+  fintech_pipeline:
+    staging:
+      +materialized: view
+      +schema: STAGING
+    marts:
+      +materialized: table
+      +schema: MARTS
