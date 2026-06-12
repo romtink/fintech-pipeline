@@ -1,0 +1,7 @@
+age_group,gender,total_transactions,fraud_count,fraud_rate_pct,avg_fraud_amount
+Over 50,M,217368,1655.0,0.76,559.9
+Over 50,F,230958,1681.0,0.73,572.09
+Under 30,M,106339,638.0,0.6,588.41
+Under 30,F,122140,724.0,0.59,488.94
+30-50,M,263105,1478.0,0.56,568.86
+30-50,F,356765,1330.0,0.37,398.21
