@@ -1,1 +1,0 @@
-{{ test_unique(column_name="category", model=get_where_subquery(ref('fraud_by_category'))) }}

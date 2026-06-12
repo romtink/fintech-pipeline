@@ -1,1 +1,0 @@
-{{ test_accepted_values(column_name="is_fraud", model=get_where_subquery(ref('stg_transactions')), values=[0,1]) }}
