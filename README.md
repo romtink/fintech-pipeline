@@ -1,12 +1,12 @@
 # Fraud Analytics ELT Pipeline
 
-An end-to-end ELT pipeline built with Python, DuckDB, dbt, Snowflake, and Tableau to answer a single business question:
+An end-to-end ELT pipeline built with Python, dbt, Snowflake, SQL, and Tableau to answer a single business question:
 
 > **Where, when, and to whom does credit card fraud occur — and what transaction behaviors predict it?**
 
 [View the Tableau Dashboard →](https://public.tableau.com/app/profile/romtin.kharrazi/viz/FraudDashboard_17809805593950/Dashboard1)
 
-![Dashboard Preview](assets/dashboard_preview.png)
+<img src="assets/dashboard_preview.png" width="800"/>
 
 ---
 
